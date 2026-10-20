@@ -9,7 +9,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact"
-        description="Contact Occusmart in Midstream, Centurion. Call 076 080 6948, WhatsApp or send an enquiry about occupational health services for your business."
+        description="Contact Occusmart in Midstream, Centurion. Call 083 2504343, WhatsApp or send an enquiry about occupational health services for your business."
         path="/contact"
       />
       <PageHero title="Contact us">

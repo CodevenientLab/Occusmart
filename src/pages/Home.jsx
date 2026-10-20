@@ -4,6 +4,7 @@ import { SITE } from '../data/site.js'
 import { SERVICE_GROUPS } from '../data/services.js'
 import workplaceHealth from '../assets/workplace-health.webp'
 import clinicalConsultation from '../assets/clinical-consultation.webp'
+import artisan from '../assets/artisan.webp'
 import Seo from '../components/Seo.jsx'
 import aerosudLogo from '../assets/logos/Aerosud.png'
 import johannesburgWaterLogo from '../assets/logos/Johannesburg_Water.jpg'
@@ -67,7 +68,7 @@ export default function Home() {
           </div>
           <div className="hero-visual hero-visual-wide">
             <div className="hero-photo-main"><img src={workplaceHealth} alt="Yellow hard hat, protective eyewear and stethoscope representing occupational health at work" width="600" height="360" fetchPriority="high" /></div>
-            <div className="hero-photo-secondary"><img src={clinicalConsultation} alt="Healthcare professional discussing an assessment with a worker" width="610" height="390" /></div>
+            <div className="hero-photo-secondary"><img src={artisan} alt="Artisan at work" width="610" height="390" /></div>
             <div className="hero-image-label"><span className="caption-mark" aria-hidden="true">O</span><div><strong>Occusmart</strong><span>Healthy Employees. Safer Workplaces. Stronger Organisations.</span></div></div>
           </div>
         </div>
