@@ -29,23 +29,7 @@ but is not as reliable as a form service.
 
 ## Deploying
 
-GitHub Pages deploys automatically from the `main` branch using
-`.github/workflows/deploy.yml`. In the repository settings, set **Pages → Build and
-deployment → Source** to **GitHub Actions**. The project site is published at
-`https://codevenientlab.github.io/Occusmart/`.
-
-The Vite build uses the `/Occusmart/` base path in GitHub Actions, while local,
-Vercel, and Netlify builds keep the root path. `public/_redirects` covers Netlify and
-Cloudflare Pages; `vercel.json` covers Vercel.
-
-## Contact form delivery
-
-Without `VITE_FORM_ENDPOINT`, the contact form opens a pre-filled message in the
-visitor's email app; the visitor must send it themselves. To enable web-based
-delivery, configure an endpoint from a supported form provider as the
-`VITE_FORM_ENDPOINT` Actions secret in the GitHub repository. The endpoint is
-included in the static site build, so use a form provider intended for browser
-submissions and configure its spam protections.
-
-After confirming the production domain, review the canonical and social URLs in
-`index.html` and `src/data/site.js`, plus `public/sitemap.xml` and `public/robots.txt`.
+The site is a single page app, so the host must serve `index.html` for every route.
+`public/_redirects` covers Netlify and Cloudflare Pages, `vercel.json` covers Vercel.
+After the domain is confirmed, check the URLs in `index.html`, `public/sitemap.xml`,
+`public/robots.txt` and `src/data/site.js`.

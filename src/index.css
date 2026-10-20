@@ -40,7 +40,7 @@ h4 { font-size: 1.05rem; font-weight: 700; }
 /* Navigation */
 .site-header { position: sticky; z-index: 50; top: 0; background: rgba(251,252,253,.96); border-bottom: 1px solid rgba(216,226,232,.9); backdrop-filter: blur(12px); }
 .header-row { min-height: var(--header-h); display: flex; align-items: center; gap: 2rem; }
-.brand { display: block; flex: 0 0 auto; width: 146px; }
+.brand { display: block; flex: 0 0 auto; width: clamp(104px, 10vw, 124px); }
 .brand img { width: 100%; height: auto; }
 .nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.2rem); margin-left: auto; }
 .nav > a { color: #3b5365; text-decoration: none; font-size: .91rem; font-weight: 600; transition: color .18s ease; }
@@ -221,7 +221,7 @@ h4 { font-size: 1.05rem; font-weight: 700; }
 @media (max-width: 760px) {
   :root { --header-h: 72px; }
   .container { width: min(calc(100% - 36px), var(--container)); }
-  .brand { width: 125px; }
+  .brand { width: 108px; }
   .header-actions .btn, .header-actions .header-phone { display: none; }
   .menu-toggle { display: inline-flex; margin-left: auto; cursor: pointer; }
   .nav { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: .45rem 18px 1rem; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 14px 20px rgba(6,35,62,.08); }
@@ -376,4 +376,64 @@ h4 { font-size: 1.05rem; font-weight: 700; }
   .site-loader { animation-duration: .01ms; animation-delay: .65s; }
   .loader-heart, .pulse-line { animation: none; }
   .pulse-line { stroke-dashoffset: 0; }
+}
+
+/* Client-approved content refresh: editorial workplace imagery and clearer industry sections */
+.hero-visual-wide { width: min(100%, 470px); padding: 0 0 2.5rem 1.5rem; }
+.hero-photo-main { position: relative; z-index: 1; width: 100%; aspect-ratio: 1.35; overflow: hidden; background: #e7eef2; }
+.hero-photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero-photo-secondary { position: absolute; z-index: 2; right: -1rem; bottom: 0; width: 49%; aspect-ratio: 1.35; overflow: hidden; border: 6px solid var(--paper); background: #e7eef2; }
+.hero-photo-secondary img { width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+.hero-image-label { position: relative; z-index: 3; display: flex; align-items: center; gap: .8rem; width: fit-content; max-width: 90%; margin-top: 1rem; padding: .8rem 1rem; color: #fff; background: var(--navy); }
+.hero-image-label > div { display: grid; line-height: 1.45; }
+.hero-image-label strong { font-size: .91rem; }
+.hero-image-label > div span { color: #d2e3ec; font-size: .7rem; }
+.industries-section { background: #fff; }
+.industries-layout { display: grid; grid-template-columns: 1.05fr .8fr; gap: clamp(2rem, 7vw, 6rem); align-items: center; }
+.industries-layout h2, .organisations-heading h2, .commitment-layout h2 { max-width: 16ch; }
+.industry-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1rem; margin-top: 1.6rem; }
+.industry-list span { display: flex; align-items: flex-start; gap: .55rem; color: #385467; font-size: .87rem; }
+.industry-list svg { flex: 0 0 auto; margin-top: .2rem; color: var(--blue); }
+.industry-photo { margin: 0; padding: 0 0 1.5rem 1.5rem; border-left: 1px solid var(--blue-light); border-bottom: 1px solid var(--blue-light); }
+.industry-photo img { width: 100%; aspect-ratio: 1.35; object-fit: cover; }
+.industry-photo figcaption { margin-top: .8rem; color: var(--muted); font-size: .78rem; }
+.organisations-section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--mist); }
+.organisations-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 3rem; align-items: end; margin-bottom: 2rem; }
+.organisations-heading h2 { margin-bottom: 0; }
+.organisations-heading > p { margin: 0; color: var(--muted); font-size: .86rem; }
+.organisation-logo-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid #d8e4ea; border-left: 1px solid #d8e4ea; background: rgba(255,255,255,.58); }
+.organisation-logo { min-height: 88px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem; padding: 1rem .7rem; text-align: center; color: #29495e; border-right: 1px solid #d8e4ea; border-bottom: 1px solid #d8e4ea; filter: saturate(.7); transition: background .2s ease, color .2s ease, filter .2s ease; }
+.organisation-logo:hover { background: #fff; color: var(--blue); filter: saturate(1); }
+.organisation-logo span { font-size: clamp(.86rem, 1.15vw, 1.12rem); font-weight: 800; line-height: 1.1; letter-spacing: -.035em; }
+.organisation-logo img { width: min(100%, 170px); height: 46px; object-fit: contain; }
+.organisation-logo small { font-size: .57rem; font-weight: 800; letter-spacing: .13em; line-height: 1.5; }
+.wordmark-acsa span, .wordmark-saa span, .wordmark-sabn span, .wordmark-samca span, .wordmark-sansa span, .wordmark-prasa span { letter-spacing: .09em; }
+.wordmark-nestle span { font-family: Georgia, serif; font-weight: 700; font-style: italic; }
+.wordmark-standardbank span { color: #284d80; }
+.wordmark-parmalat span { color: #3977a8; font-family: Georgia, serif; font-style: italic; }
+.wordmark-gauteng span { color: #567c37; }
+.wordmark-columbus span { letter-spacing: .06em; }
+.wordmark-up span { color: #9b1b30; }
+.wordmark-joburg span { color: #2774a5; }
+.wordmark-life span { color: #4c8d66; }
+.organisations-note { margin: 1rem 0 0; color: #687f8e; font-size: .76rem; }
+@media (max-width: 760px) { .organisation-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .organisation-logo { min-height: 76px; padding: .75rem .4rem; } }
+@media (max-width: 380px) { .organisation-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.commitment-section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #fff; }
+.commitment-layout { display: grid; grid-template-columns: .85fr 1fr; gap: clamp(2rem, 8vw, 7rem); }
+.commitment-points { display: grid; gap: 1rem; }
+.commitment-points p { display: grid; grid-template-columns: 24px 1fr; gap: .7rem; margin: 0; color: #4f6676; font-size: .9rem; }
+.commitment-points svg { color: var(--blue); margin-top: .2rem; }
+.commitment-points strong { color: var(--navy); }
+@media (max-width: 760px) {
+  .hero-visual-wide { justify-self: center; width: min(92%, 440px); margin: 0; padding-left: .5rem; }
+  .hero-photo-secondary { right: -.5rem; width: 46%; border-width: 4px; }
+  .hero-image-label { max-width: 95%; }
+  .industries-layout, .organisations-heading, .commitment-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .industry-photo { max-width: 520px; }
+  .organisations-heading { margin-bottom: 1.5rem; }
+}
+@media (max-width: 460px) {
+  .industry-list { grid-template-columns: 1fr; }
+  .hero-image-label > div span { max-width: 28ch; }
 }
