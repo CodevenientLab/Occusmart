@@ -3,15 +3,12 @@ import Seo from '../components/Seo.jsx'
 import PageHero from '../components/PageHero.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import { SERVICE_GROUPS } from '../data/services.js'
+import { SEO_PAGES } from '../data/seo.js'
 
 export default function Services() {
   return (
     <>
-      <Seo
-        title="Occupational health services"
-        description="Fitness medicals, audiometry, lung function testing, vision screening, biological monitoring, health risk assessments, vaccinations, incapacity management and reporting."
-        path="/services"
-      />
+      <Seo {...SEO_PAGES['/services']} path="/services" />
       <PageHero title="Occupational health services">
         Practical assessments, monitoring and reporting that help you keep your people healthy and your
         business compliant.

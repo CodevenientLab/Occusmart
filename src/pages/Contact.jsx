@@ -3,15 +3,12 @@ import Seo from '../components/Seo.jsx'
 import PageHero from '../components/PageHero.jsx'
 import ContactForm from '../components/ContactForm.jsx'
 import { SITE } from '../data/site.js'
+import { SEO_PAGES } from '../data/seo.js'
 
 export default function Contact() {
   return (
     <>
-      <Seo
-        title="Contact"
-        description="Contact Occusmart in Midstream, Centurion. Call 083 2504343, WhatsApp or send an enquiry about occupational health services for your business."
-        path="/contact"
-      />
+      <Seo {...SEO_PAGES['/contact']} path="/contact" />
       <PageHero title="Contact us">
         Tell us about your business and what you need. We will come back with a clear next step.
       </PageHero>

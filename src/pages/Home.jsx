@@ -6,6 +6,7 @@ import workplaceHealth from '../assets/workplace-health.webp'
 import clinicalConsultation from '../assets/clinical-consultation.webp'
 import artisan from '../assets/artisan.webp'
 import Seo from '../components/Seo.jsx'
+import { SEO_PAGES } from '../data/seo.js'
 import aerosudLogo from '../assets/logos/Aerosud.png'
 import johannesburgWaterLogo from '../assets/logos/Johannesburg_Water.jpg'
 import acsaLogo from '../assets/logos/acsa_seeklogo.png'
@@ -53,7 +54,7 @@ const GROUP_ICONS = [Stethoscope, ShieldCheck, HeartPulse, BriefcaseMedical]
 export default function Home() {
   return (
     <>
-      <Seo description="Occusmart provides occupational medicals, medical surveillance, health risk assessments, fitness-for-work support and workplace wellness services for organisations in South Africa." path="/" />
+      <Seo {...SEO_PAGES['/']} path="/" />
       <section className="hero" id="home" aria-labelledby="hero-title">
         <div className="container hero-grid">
           <div className="hero-copy">

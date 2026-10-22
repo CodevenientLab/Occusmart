@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Occusmart',
   legalName: 'Occusmart Employee Health & Wellness',
-  url: 'https://www.occusmart.co.za',
+  url: 'https://occusmart.co.za',
   tagline: 'Healthy Employees. Safer Workplaces. Stronger Organisations.',
   practitioner: { name: 'Funeka Ngcakani', title: 'Occupational Medical Practitioner' },
   phone: '083 2504343',

@@ -3,6 +3,7 @@ import Seo from '../components/Seo.jsx'
 import PageHero from '../components/PageHero.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import { SITE } from '../data/site.js'
+import { SEO_PAGES } from '../data/seo.js'
 import mark from '../assets/mark.webp'
 
 const WHY = [
@@ -16,11 +17,7 @@ const WHY = [
 export default function About() {
   return (
     <>
-      <Seo
-        title="About us"
-        description="Occusmart is an occupational health practice in Centurion led by occupational medical practitioner Funeka Ngcakani, helping employers protect their people and meet legal obligations."
-        path="/about"
-      />
+      <Seo {...SEO_PAGES['/about']} path="/about" />
       <PageHero title="About Occusmart">
         We help employers promote health, reduce risk and build workplaces where people can do their best work.
       </PageHero>

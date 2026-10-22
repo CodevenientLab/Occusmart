@@ -17,6 +17,7 @@ npm run preview    # serve the build locally
 | --- | --- |
 | Phone, email, address, tagline | `src/data/site.js` |
 | Services, descriptions, icons | `src/data/services.js` |
+| Page titles and search/social descriptions | `src/data/seo.js` |
 | Page copy | `src/pages/*.jsx` |
 | Colours and type | top of `src/index.css` (design tokens) |
 | Contact form delivery | `.env` (see below) |
@@ -29,7 +30,7 @@ but is not as reliable as a form service.
 
 ## Deploying
 
-The site is a single page app, so the host must serve `index.html` for every route.
-`public/_redirects` covers Netlify and Cloudflare Pages, `vercel.json` covers Vercel.
-After the domain is confirmed, check the URLs in `index.html`, `public/sitemap.xml`,
-`public/robots.txt` and `src/data/site.js`.
+The production build prerenders each route into `dist/` with its own page content and SEO metadata.
+Keep the host's SPA fallback for unknown paths; `dist/404.html` provides the not-found page.
+`public/_redirects` covers Netlify and Cloudflare Pages, `vercel.json` covers Vercel, and
+`.github/workflows/deploy.yml` deploys to GitHub Pages.

@@ -1,15 +1,12 @@
 import Seo from '../components/Seo.jsx'
 import PageHero from '../components/PageHero.jsx'
 import { SITE } from '../data/site.js'
+import { SEO_PAGES } from '../data/seo.js'
 
 export default function Privacy() {
   return (
     <>
-      <Seo
-        title="Privacy notice"
-        description="How Occusmart collects, uses and protects personal information submitted through this website, in line with the Protection of Personal Information Act (POPIA)."
-        path="/privacy"
-      />
+      <Seo {...SEO_PAGES['/privacy']} path="/privacy" />
       <PageHero title="Privacy notice">
         How we handle personal information submitted through this website.
       </PageHero>

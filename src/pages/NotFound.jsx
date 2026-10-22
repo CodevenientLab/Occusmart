@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
+import { SEO_PAGES } from '../data/seo.js'
 
 export default function NotFound() {
   return (
     <>
-      <Seo title="Page not found" description="The page you were looking for could not be found." path="/404" noindex />
+      <Seo {...SEO_PAGES['/404']} path="/404" />
       <section className="section">
         <div className="container prose not-found">
           <h1>We could not find that page</h1>

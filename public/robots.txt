@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.occusmart.co.za/sitemap.xml
+Sitemap: https://occusmart.co.za/sitemap.xml
