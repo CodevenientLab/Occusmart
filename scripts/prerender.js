@@ -2,13 +2,12 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router'
 import { createServer } from 'vite'
 import { SEO_PAGES } from '../src/data/seo.js'
 import { SITE } from '../src/data/site.js'
 
 const outputDir = path.resolve('dist')
-const routes = Object.keys(SEO_PAGES).filter((route) => route !== '/404')
+const routes = ['/']
 
 function escapeAttribute(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
@@ -65,10 +64,8 @@ try {
     readFile(path.join(outputDir, '.vite', 'manifest.json'), 'utf8'),
   ])
   const manifest = JSON.parse(manifestFile)
-  const renderPage = (route) => {
-    const markup = renderToString(
-      React.createElement(StaticRouter, { location: route }, React.createElement(App)),
-    )
+  const renderPage = () => {
+    const markup = renderToString(React.createElement(App))
     let html = template.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
 
     for (const [source, asset] of Object.entries(manifest)) {
@@ -92,9 +89,29 @@ try {
   }
 
   const notFound = SEO_PAGES['/404']
+  const notFoundMarkup = renderToString(
+    React.createElement(
+      'section',
+      { className: 'section' },
+      React.createElement(
+        'div',
+        { className: 'container prose not-found' },
+        React.createElement('h1', null, 'We could not find that page'),
+        React.createElement('p', null, 'The link may be out of date or the address may have a typing error.'),
+        React.createElement(
+          'p',
+          null,
+          React.createElement('a', { className: 'btn btn-primary', href: '/' }, 'Back to the home page'),
+        ),
+      ),
+    ),
+  )
+  const notFoundHtml = template
+    .replace('<div id="root"></div>', `<div id="root">${notFoundMarkup}</div>`)
+    .replace(/^\s*<script type="module"[^>]*><\/script>\r?\n?/m, '')
   await writeFile(
     path.join(outputDir, '404.html'),
-    addPageMetadata(renderPage('/missing-page'), '/404', notFound),
+    addPageMetadata(notFoundHtml, '/404', notFound),
   )
 } finally {
   await vite.close()

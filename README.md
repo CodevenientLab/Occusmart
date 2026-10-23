@@ -1,6 +1,6 @@
 # Occusmart website
 
-React 19 + Vite 8 + React Router. Brand assets live in `src/assets`, content in `src/data`.
+React 19 + Vite 8. Brand assets live in `src/assets`, content in `src/data`.
 
 ## Run
 
@@ -17,8 +17,8 @@ npm run preview    # serve the build locally
 | --- | --- |
 | Phone, email, address, tagline | `src/data/site.js` |
 | Services, descriptions, icons | `src/data/services.js` |
-| Page titles and search/social descriptions | `src/data/seo.js` |
-| Page copy | `src/pages/*.jsx` |
+| Homepage title and search/social description | `src/data/seo.js` |
+| Homepage copy and sections | `src/pages/Home.jsx` |
 | Colours and type | top of `src/index.css` (design tokens) |
 | Contact form delivery | `.env` (see below) |
 
@@ -30,7 +30,7 @@ but is not as reliable as a form service.
 
 ## Deploying
 
-The production build prerenders each route into `dist/` with its own page content and SEO metadata.
-Keep the host's SPA fallback for unknown paths; `dist/404.html` provides the not-found page.
+The site is a single page with in-page section navigation. The production build prerenders the
+homepage into `dist/` with its SEO metadata; `dist/404.html` is the not-found fallback.
 `public/_redirects` covers Netlify and Cloudflare Pages, `vercel.json` covers Vercel, and
 `.github/workflows/deploy.yml` deploys to GitHub Pages.

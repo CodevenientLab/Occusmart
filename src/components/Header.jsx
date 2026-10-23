@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Menu, X, Phone } from 'lucide-react'
 import { SITE } from '../data/site.js'
 import logo from '../assets/logo-horizontal.webp'
 
 const LINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { href: '#home', label: 'Home' },
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -25,9 +24,9 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-row">
-        <Link to="/" className="brand" aria-label="Occusmart home" onClick={closeMenu}>
+        <a href="#home" className="brand" aria-label="Occusmart home" onClick={closeMenu}>
           <img src={logo} alt="Occusmart Employee Health and Wellness" width="560" height="325" />
-        </Link>
+        </a>
         <button
           type="button"
           className="menu-toggle"
@@ -40,13 +39,13 @@ export default function Header() {
         </button>
         <nav id="primary-nav" className={`nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
           {LINKS.map((item) => (
-            <Link key={item.to} to={item.to} onClick={closeMenu}>{item.label}</Link>
+            <a key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>
           ))}
           <a className="nav-mobile-call" href={SITE.phoneHref} onClick={closeMenu}><Phone size={16} /> Call {SITE.phone}</a>
         </nav>
         <div className="header-actions">
           <a className="header-phone" href={SITE.phoneHref}><Phone size={16} aria-hidden="true" /><span>{SITE.phone}</span></a>
-          <Link className="btn btn-primary btn-sm" to="/contact">Request an enquiry</Link>
+          <a className="btn btn-primary btn-sm" href="#contact">Request an enquiry</a>
         </div>
       </div>
     </header>
